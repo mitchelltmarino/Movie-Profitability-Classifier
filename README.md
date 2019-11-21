@@ -118,7 +118,6 @@ good number of informative features while avoiding falling victim to the curse o
 I used a combination of box plots and small multiples visualization to determine which
 descriptive features were giving us the most information about movie profitability.
 
-!["Defining Profitability"](/.Github/Assets/InformativeAttempt1.jpg)
 !["Defining Profitability"](/.Github/Assets/InformativeAttempt2.jpg)
 
 These findings indicate that the profitability of a movie is highly correlated with the past
