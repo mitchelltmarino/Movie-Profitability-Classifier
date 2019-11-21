@@ -143,13 +143,12 @@ To find the optimal value for K, which I found to
 be 22, I iteratively trained and tested the model for
 K values 1 to 40.
 
+!["Defining Profitability"](/.Github/Assets/KNN.jpg)
 
 KNN performed reasonably well considering how simple it is, and it did not require any training
 time due to its lazy nature. Thus, it was my fastest trained model.
 
 **K Nearest Neighbours Performance**
-
-!["Defining Profitability"](/.Github/Assets/KNN.jpg)
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
@@ -169,9 +168,9 @@ descriptive features quite accurately, but not as well as KNN. The average train
 training set (3020 instances) was 7.55ms, making it my second fastest to train model next to
 KNN (which requires no training time at all).
 
-**Logistic Regression Performance**
-
 !["Defining Profitability"](/.Github/Assets/LogisticRegressionAUC.jpg)
+
+**Logistic Regression Performance**
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
@@ -185,16 +184,16 @@ well, so I intuitively thought that SVM would provide some
 greater accuracy due to its inductive bias, which maximizes the
 margin of the decision boundary on the hyperplane.
 
-my SVM model performed best with a Gaussian kernel, indicating that the relationship between
+The SVM model performed best with a Gaussian kernel, indicating that the relationship between
 movie profitability and the descriptive features was complex. The average training time was
 146 ms, making it my second slowest model to train. Interestingly, SVM and KNN had extremely
 similar classification results, such that either one could be used depending on preferences of
 classification (perhaps true negatives are most important). One may be desirable over the other in
 terms of classification or training time, where SVM and KNN would win respectively.
 
-**Support Vector Machine Performance**
-
 !["Defining Profitability"](/.Github/Assets/SVMAUC.jpg)
+
+**Support Vector Machine Performance**
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
@@ -214,10 +213,9 @@ slowest model to train, but overall it was the best performing model. This is li
 model’s ability to capture extremely complex relationships between the descriptive feature and
 target feature through back propagation.
 
+!["Defining Profitability"](/.Github/Assets/ANNAUC.jpg)
 
 **Artificial Neural Network Performance**
-
-!["Defining Profitability"](/.Github/Assets/ANNAUC.jpg)
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
