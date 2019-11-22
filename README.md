@@ -80,12 +80,12 @@ for making a movie do not exceed the cost of the production budget of the movie.
 Taking these factors into account, I decided to classify a movie as profitable if the revenue of
 the movie is greater or equal to the production budget:
 
-!["Defining Profitability"](/.Github/Assets/ClassifyingProfitability1.jpg)
+!["Defining Profitability"](/.Github/Assets/Classifying-Profitability.jpg)
 
 After classifying each instance in the dataset, I plotted the class distribution for revenue vs
 budget, along with the frequencies which are pictured below (0 = unprofitable, 1 = profitable):
 
-!["Observing distribution of profitable and unprofitable films"](/.Github/Assets/ClassifyingProfitability2.jpg)
+!["Observing distribution of profitable and unprofitable films"](/.Github/Assets/Class-Distribution.jpg)
 
 ### Feature Creation
 
@@ -122,9 +122,11 @@ I found the most informative features to be:
 9. Lead Actor Average Movie Revenue
 10. Budget
 
-** Note: **Ratio** in the features above, refers to fraction returned by: (total_revenue/total_budget_spending)
+Note: **Ratio** in the features above, refers to fraction returned by: (total_revenue/total_budget_spending)
 
-!["Graphs for the two most informative features"](/.Github/Assets/InformativeAttempt2.jpg)
+Below are two pairs of diagrams which demonstrate how the features are informative - each feature separates the two levels of the target class quite significantly based on its value.
+
+!["Graphs for the two most informative features"](/.Github/Assets/Informative-Feature-Diagrams.jpg)
 
 These findings indicate that the profitability of a movie is highly correlated with the past
 successes and activity of directors, actors, and studios. Additionally, the plot of the movie also
@@ -132,22 +134,15 @@ plays a role in its potential for success.
 
 ## Empirical Evaluation
 
-I implemented four machine models to predict whether a film will be profitable or not. Each
-of the models I implemented are well suited for binary classification problems such as
-predicting movie profitability.
+I implemented four machine models using [scikit-learn](https://scikit-learn.org/stable/) to predict whether a film will be profitable or not. Each of the models I implemented are well suited for the binary classification problem at hand (i.e. predicting movie profitability).
 
 Before placing the datasets into the machine learning models, I standardized the values into the
 range [0, 1]. Additionally, every model was trained and tested by using 10-fold cross validation.
 
 ### K Nearest Neighbours (KNN)
 
-The first algorithm I attempted was the K Nearest
-Neighbours algorithm, with Euclidean Distance for
-the distance metric.
-
-To find the optimal value for K, which I found to
-be 22, I iteratively trained and tested the model for
-K values 1 to 40.
+The first algorithm I attempted was the K Nearest Neighbours algorithm, with Euclidean Distance for
+the distance metric. To find the optimal value for K, which I found to be 22, I iteratively trained and tested the model for K values 1 to 40.
 
 KNN performed reasonably well considering how simple it is, and it did not require any training
 time due to its lazy nature. Thus, it was my fastest trained model.
@@ -158,18 +153,13 @@ time due to its lazy nature. Thus, it was my fastest trained model.
 | -- | --- | --- | ---| ---
 | 0.89 | 0.88 | 0.93 | .096 | 0.89
 
-!["Defining Profitability"](/.Github/Assets/KNN-Performance.jpg)
+!["K Nearest Neighbours Performance"](/.Github/Assets/KNN-Performance.jpg)
 
 ### Logistic Regression
 
-The second model I implemented was logistic regression,
-which is a linear model made for binary classification, rather
-than regression. The goal of a logistic regression model is to
-accurately find the optimal decision boundary on the
-hyperplane. This is done by using gradient descent to
-minimize the sum of squared errors on the training dataset.
+The second model I implemented was logistic regression, which is a linear model made for binary classification, rather than regression. The goal of a logistic regression model is to accurately find the optimal decision boundary on the hyperplane. This is done by using gradient descent to minimize the sum of squared errors on the training dataset.
 
-my logistic regression model captured the relationship between movie profitability and the
+The logistic regression model captured the relationship between movie profitability and the
 descriptive features quite accurately, but not as well as KNN. The average training time for the
 training set (3020 instances) was 7.55ms, making it my second fastest to train model next to
 KNN (which requires no training time at all).
@@ -180,22 +170,13 @@ KNN (which requires no training time at all).
 | -- | --- | --- | ---| ---
 | 0.87 | 0.88 | 0.90 | 0.89 | 0.87
 
-!["Defining Profitability"](/.Github/Assets/LR-Performance.jpg)
+!["Logistic Regression Performance"](/.Github/Assets/LR-Performance.jpg)
 
 ### Support Vector Machine (SVM)
 
-The third model I implemented was a support vector
-machine. The logistic regression model performed reasonably
-well, so I intuitively thought that SVM would provide some
-greater accuracy due to its inductive bias, which maximizes the
-margin of the decision boundary on the hyperplane.
+The third model I implemented was a support vector machine. The logistic regression model performed reasonably well, so I intuitively thought that SVM would provide some greater accuracy due to its inductive bias, which maximizes the margin of the decision boundary on the hyperplane.
 
-The SVM model performed best with a Gaussian kernel, indicating that the relationship between
-movie profitability and the descriptive features was complex. The average training time was
-146 ms, making it my second slowest model to train. Interestingly, SVM and KNN had extremely
-similar classification results, such that either one could be used depending on preferences of
-classification (perhaps true negatives are most important). One may be desirable over the other in
-terms of classification or training time, where SVM and KNN would win respectively.
+The SVM model performed best with a Gaussian kernel, indicating that the relationship between movie profitability and the descriptive features was complex. The average training time was 146 ms, making it my second slowest model to train. Interestingly, SVM and KNN had extremely similar classification results, such that either one could be used depending on preferences of classification (perhaps **true negatives** are most important, so you want high recall). One may be desirable over the other in terms of classification or training time, where SVM and KNN perform better.
 
 **Support Vector Machine Performance**
 
@@ -203,16 +184,11 @@ terms of classification or training time, where SVM and KNN would win respective
 | -- | --- | --- | ---| ---
 | 0.89 | 0.91 | 0.91 | 0.91 | 0.89
 
-!["Defining Profitability"](/.Github/Assets/SVM-Performance.jpg)
+!["Support Vector Machine Performance"](/.Github/Assets/SVM-Performance.jpg)
 
 ### Artificial Neural Network (ANN)
 
-The final model I implemented was an artificial neural
-network. For my implementation of an artificial neural
-network, I experimented with multiple numbers of hidden
-layers as well as different sizes of hidden layers. In the end, I
-found that an implementation with a single hidden layer with
-size 100 provided the best accuracy.
+The final model I implemented was an artificial neural network. For my implementation of an artificial neural network, I experimented with multiple numbers of hidden layers as well as different sizes of hidden layers. In the end, I found that an implementation with a single hidden layer with size 100 provided the best accuracy.
 
 The average training time for the artificial neural network was 5.51 seconds, making it my
 slowest model to train, but overall it was the best performing model. This is likely due to the
@@ -225,7 +201,7 @@ target feature through back propagation.
 | -- | --- | --- | ---| ---
 | 0.9 | 0.93 | 0.92 | 0.92 | 0.91
 
-!["Defining Profitability"](/.Github/Assets/ANN-Performance.jpg)
+!["Artificial Neural Network Performance"](/.Github/Assets/ANN-Performance.jpg)
 
 ## Conclusion
 
@@ -235,8 +211,10 @@ turn a profit. Had my data included more descriptive features such as actor rati
 heavily correlated with movie success in some of the research papers I read, I would have
 been likely able to produce more accurate models.
 
+!["Defining Profitability"](/.Github/Assets/Final-Comparison.jpg)
+
 From the graphs pictured above, it can clearly be seen that the Artificial Neural Network was the
-best performing model overall, followed by SVM, KNN, and Logistic Regression.
+best performing model overall, followed by SVM, KNN, and Logistic Regression. One thing I found incredible was how close a lazy model such as KNN is able to predict the target class, especially with such good recall compared to the other models.
 
 ### Suggestions for Future Research
 
@@ -244,3 +222,24 @@ Because success of a film seems to be heavily correlated with success of past ac
 and studios, I suggest that more information be gathered about these entities both inside and
 outside of the domain of movies. Surely social media information, ratings, and awards received
 by the film crew would great impact on the ability of a model to predict film profitability.
+
+## Closing Notes
+
+Thanks for taking interest in my project!
+
+Most code of the code I used to conduct this experiment is included in this project - here is a description of each folder in the repo:
+
+* **Code - Data Parsing**
+    * Contains original datasets, Python code used to merge the datasets and massage the data.
+    * Final processed data can be found in "processed_data_final.csv".
+
+* **Code - Machine Learning**
+    * Contains all of the Python code used to implement the machine learning models ([scikit-learn](https://scikit-learn.org/stable/)) and test their performance.
+
+* **Graphs - Feature Analysis**
+    * Contains all diagrams, graphs, etc. used to analyze the descriptive features.
+    * Unfortunately, lost the code I used to generate these diagrams when I reformatted my laptop, but I mainly used [matplotlib](https://matplotlib.org/examples/statistics/histogram_demo_histtypes.html) and [seaborn](http://seaborn.pydata.org/index.html).
+
+* **Output - Model Performance**
+    * Contains output after training and testing performance of the machine learning models.
+    * Results were graphed here using Excel.
