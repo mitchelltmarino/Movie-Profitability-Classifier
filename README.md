@@ -119,8 +119,8 @@ I used a combination of box plots and small multiples visualization to determine
 descriptive features were giving us the most information about movie profitability.
 
 !["Defining Profitability"](/.Github/Assets/InformativeAttempt2.jpg)
-!["Defining Profitability"](/.Github/Assets/InformativeAttempt3.jpg)
-!["Defining Profitability"](/.Github/Assets/InformativeAttempt4.jpg)
+!["Defining Profitability"](/.Github/Assets/Test1.jpg)
+!["Defining Profitability"](/.Github/Assets/Test2.jpg)
 
 These findings indicate that the profitability of a movie is highly correlated with the past
 successes and activity of directors, actors, and studios. Additionally, the plot of the movie also
