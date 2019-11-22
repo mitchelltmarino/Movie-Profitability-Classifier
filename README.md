@@ -143,8 +143,6 @@ To find the optimal value for K, which I found to
 be 22, I iteratively trained and tested the model for
 K values 1 to 40.
 
-!["Defining Profitability"](/.Github/Assets/KNN-Performance.jpg)
-
 KNN performed reasonably well considering how simple it is, and it did not require any training
 time due to its lazy nature. Thus, it was my fastest trained model.
 
@@ -153,6 +151,8 @@ time due to its lazy nature. Thus, it was my fastest trained model.
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
 | 0.89 | 0.88 | 0.93 | .096 | 0.89
+
+!["Defining Profitability"](/.Github/Assets/KNN-Performance.jpg)
 
 ### Logistic Regression
 
@@ -168,13 +168,13 @@ descriptive features quite accurately, but not as well as KNN. The average train
 training set (3020 instances) was 7.55ms, making it my second fastest to train model next to
 KNN (which requires no training time at all).
 
-!["Defining Profitability"](/.Github/Assets/LR-Performance.jpg)
-
 **Logistic Regression Performance**
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
 | 0.87 | 0.88 | 0.90 | 0.89 | 0.87
+
+!["Defining Profitability"](/.Github/Assets/LR-Performance.jpg)
 
 ### Support Vector Machine (SVM)
 
@@ -191,13 +191,13 @@ similar classification results, such that either one could be used depending on 
 classification (perhaps true negatives are most important). One may be desirable over the other in
 terms of classification or training time, where SVM and KNN would win respectively.
 
-!["Defining Profitability"](/.Github/Assets/SVM-Performance.jpg)
-
 **Support Vector Machine Performance**
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
 | 0.89 | 0.91 | 0.91 | 0.91 | 0.89
+
+!["Defining Profitability"](/.Github/Assets/SVM-Performance.jpg)
 
 ### Artificial Neural Network (ANN)
 
@@ -213,13 +213,13 @@ slowest model to train, but overall it was the best performing model. This is li
 model’s ability to capture extremely complex relationships between the descriptive feature and
 target feature through back propagation.
 
-!["Defining Profitability"](/.Github/Assets/ANN-Performance.jpg)
-
 **Artificial Neural Network Performance**
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
 | 0.9 | 0.93 | 0.92 | 0.92 | 0.91
+
+!["Defining Profitability"](/.Github/Assets/ANN-Performance.jpg)
 
 ## Conclusion
 
