@@ -119,6 +119,8 @@ I used a combination of box plots and small multiples visualization to determine
 descriptive features were giving us the most information about movie profitability.
 
 !["Defining Profitability"](/.Github/Assets/InformativeAttempt2.jpg)
+!["Defining Profitability"](/.Github/Assets/InformativeAttempt3.jpg)
+!["Defining Profitability"](/.Github/Assets/InformativeAttempt4.jpg)
 
 These findings indicate that the profitability of a movie is highly correlated with the past
 successes and activity of directors, actors, and studios. Additionally, the plot of the movie also
@@ -143,7 +145,7 @@ To find the optimal value for K, which I found to
 be 22, I iteratively trained and tested the model for
 K values 1 to 40.
 
-!["Defining Profitability"](/.Github/Assets/KNN.jpg)
+!["Defining Profitability"](/.Github/Assets/KNN-Performance.jpg)
 
 KNN performed reasonably well considering how simple it is, and it did not require any training
 time due to its lazy nature. Thus, it was my fastest trained model.
@@ -168,7 +170,7 @@ descriptive features quite accurately, but not as well as KNN. The average train
 training set (3020 instances) was 7.55ms, making it my second fastest to train model next to
 KNN (which requires no training time at all).
 
-!["Defining Profitability"](/.Github/Assets/LogisticRegressionAUC.jpg)
+!["Defining Profitability"](/.Github/Assets/LR-Performance.jpg)
 
 **Logistic Regression Performance**
 
@@ -191,7 +193,7 @@ similar classification results, such that either one could be used depending on 
 classification (perhaps true negatives are most important). One may be desirable over the other in
 terms of classification or training time, where SVM and KNN would win respectively.
 
-!["Defining Profitability"](/.Github/Assets/SVMAUC.jpg)
+!["Defining Profitability"](/.Github/Assets/SVM-Performance.jpg)
 
 **Support Vector Machine Performance**
 
@@ -213,15 +215,13 @@ slowest model to train, but overall it was the best performing model. This is li
 model’s ability to capture extremely complex relationships between the descriptive feature and
 target feature through back propagation.
 
-!["Defining Profitability"](/.Github/Assets/ANNAUC.jpg)
+!["Defining Profitability"](/.Github/Assets/ANN-Performance.jpg)
 
 **Artificial Neural Network Performance**
 
 | Accuracy | Precision | Recall | F-Measure | Area Under Curve
 | -- | --- | --- | ---| ---
 | 0.9 | 0.93 | 0.92 | 0.92 | 0.91
-
-
 
 ## Conclusion
 
